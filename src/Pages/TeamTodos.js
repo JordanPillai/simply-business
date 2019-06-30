@@ -25,6 +25,7 @@ export default function TeamTodos(props) {
     toggleState,
     addTodo,
     deleteTodo,
+    completeTodo,
     toggleTodoFrom
   } = useTodoState([]);
 
@@ -35,6 +36,7 @@ export default function TeamTodos(props) {
           <TodoList
             todos={todos}
             deleteTodo={deleteTodo}
+            completeTodo={completeTodo}
             toggleTodoFrom={toggleTodoFrom}
           />
           {toggleState && (

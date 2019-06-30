@@ -33,7 +33,7 @@ const TodoList = ({ todos, deleteTodo, completeTodo, toggleTodoFrom }) => {
 
   return (
     <List>
-      {todos.map((todo, index) => (
+      {todos.map(({ label, completed }, index) => (
         <ListItem key={index} button className={classes.root}>
           <FormControlLabel
             classes={{
@@ -41,14 +41,18 @@ const TodoList = ({ todos, deleteTodo, completeTodo, toggleTodoFrom }) => {
             }}
             control={
               <Checkbox
+                checked={completed}
                 tabIndex={-1}
                 disableRipple
                 classes={{
                   checked: classes.checked
                 }}
+                onChange={() => {
+                  completeTodo(index, completed);
+                }}
               />
             }
-            label={todo}
+            label={label}
           />
 
           <ListItemSecondaryAction>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default initialValue => {
-  const [todos, setTodos] = useState(initialValue);
+  const [todos, setTodos] = useState(initialValue, false);
   const [toggleState, setToggleState] = useState(false);
 
   return {
@@ -11,8 +11,16 @@ export default initialValue => {
       setToggleState(!toggleState);
     },
     addTodo: todoText => {
-      setTodos([...todos, todoText]);
+      const newArr = todos.slice();
+      newArr.splice(0, 0, { label: todoText, completed: false });
+      setTodos(newArr);
       setToggleState(!toggleState);
+    },
+    completeTodo: (todoIndex, completed) => {
+      const newArr = todos.slice();
+      newArr[todoIndex].completed = !completed;
+
+      setTodos(newArr);
     },
     deleteTodo: todoIndex => {
       const newTodos = todos.filter((_, index) => index !== todoIndex);
