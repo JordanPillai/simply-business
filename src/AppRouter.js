@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 
 import Navigation from './Components/Navigation';
-import TeamTodo from './Pages/TeamTodo';
+import TeamTodos from './Pages/TeamTodos';
 
 function AppRouter() {
   return (
@@ -10,7 +10,8 @@ function AppRouter() {
       <div>
         <Navigation />
 
-        <Route path="/team-todo" exact component={TeamTodo} />
+        <Route exact path="/" render={() => <Redirect to="/team-todos" />} />
+        <Route path="/team-todos" exact component={TeamTodos} />
       </div>
     </Router>
   );

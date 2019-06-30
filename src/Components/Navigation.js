@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Avatar from '@material-ui/core/Avatar';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -12,8 +13,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListIcon from '@material-ui/icons/List';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import MenuIcon from '@material-ui/icons/Menu';
+import PersonIcon from '@material-ui/icons/Person';
 import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
 
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
@@ -23,6 +27,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex'
   },
+  title: {
+    width: '100%'
+  },
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
@@ -30,8 +37,10 @@ const useStyles = makeStyles(theme => ({
     }
   },
   appBar: {
+    position: 'static',
     marginLeft: drawerWidth,
     background: '#5B23E8',
+    padding: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`
     }
@@ -67,7 +76,15 @@ export default function Navigation(props) {
       <div className={classes.toolBar} />
       <Divider />
       <List>
-        <Link to="/team-todo" className={classes.menuLink}>
+        <ListItem>
+          <ListItemAvatar>
+            <Avatar>
+              <PersonIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="Jordan Pillai" />
+        </ListItem>
+        <Link to="/team-todos" className={classes.menuLink}>
           <ListItem button>
             <ListItemIcon>
               <ListIcon />
@@ -82,7 +99,7 @@ export default function Navigation(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar className={classes.appBar}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -94,8 +111,20 @@ export default function Navigation(props) {
             <MenuIcon />
           </IconButton>
         </Toolbar>
+        <Typography
+          variant="h3"
+          display="block"
+          className={classes.title}
+          gutterBottom
+        >
+          Team To-Do List
+        </Typography>
+
+        <Typography variant="h6" display="block" className={classes.title}>
+          13th may 2019
+        </Typography>
       </AppBar>
-      <nav className={classes.drawer} aria-label="Mailbox folders">
+      <nav className={classes.drawer}>
         <Hidden smUp implementation="css">
           <Drawer
             container={container}
