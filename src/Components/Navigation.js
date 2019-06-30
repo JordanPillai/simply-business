@@ -39,11 +39,12 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     position: 'static',
-    marginLeft: drawerWidth,
+    marginLeft: 0,
     background: '#5B23E8',
     padding: theme.spacing(3),
     [theme.breakpoints.up('sm')]: {
-      width: `calc(100% - ${drawerWidth}px)`
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth
     }
   },
   menuButton: {
