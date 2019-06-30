@@ -23,7 +23,9 @@ const useStyles = makeStyles(theme => ({
       textDecoration: 'line-through'
     }
   },
-  label: {}
+  label: {
+    wordBreak: 'break-all'
+  }
 }));
 
 const TodoList = ({ todos, deleteTodo, completeTodo, toggleTodoFrom }) => {
