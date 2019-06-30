@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { format } from 'date-fns';
+
 import Avatar from '@material-ui/core/Avatar';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -121,7 +122,7 @@ export default function Navigation(props) {
         </Typography>
 
         <Typography variant="h6" display="block" className={classes.title}>
-          13th may 2019
+          {format(new Date(), 'ddd DD MMMM')}
         </Typography>
       </AppBar>
       <nav className={classes.drawer}>
@@ -157,9 +158,3 @@ export default function Navigation(props) {
     </div>
   );
 }
-
-Navigation.propTypes = {
-  // Injected by the documentation to work in an iframe.
-  // You won't need it on your project.
-  container: PropTypes.object
-};
