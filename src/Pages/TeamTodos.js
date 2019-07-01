@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function TeamTodos(props) {
+const TeamTodos = () => {
   const classes = useStyles();
   const {
     todos,
@@ -26,7 +26,7 @@ export default function TeamTodos(props) {
     addTodo,
     deleteTodo,
     completeTodo,
-    toggleTodoFrom
+    toggleTodoForm
   } = useTodoState([]);
 
   return (
@@ -37,7 +37,7 @@ export default function TeamTodos(props) {
             todos={todos}
             deleteTodo={deleteTodo}
             completeTodo={completeTodo}
-            toggleTodoFrom={toggleTodoFrom}
+            toggleTodoForm={toggleTodoForm}
           />
           {toggleState && (
             <TodoForm
@@ -54,4 +54,6 @@ export default function TeamTodos(props) {
       </main>
     </div>
   );
-}
+};
+
+export default TeamTodos;

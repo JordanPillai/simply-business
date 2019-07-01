@@ -4,7 +4,6 @@ import { format } from 'date-fns';
 
 import Avatar from '@material-ui/core/Avatar';
 import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
@@ -63,8 +62,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Navigation(props) {
-  const { container } = props;
+const Navigation = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -100,7 +98,6 @@ export default function Navigation(props) {
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
       <AppBar className={classes.appBar}>
         <Toolbar>
           <IconButton
@@ -129,7 +126,6 @@ export default function Navigation(props) {
       <nav className={classes.drawer}>
         <Hidden smUp implementation="css">
           <Drawer
-            container={container}
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
@@ -158,4 +154,6 @@ export default function Navigation(props) {
       </nav>
     </div>
   );
-}
+};
+
+export default Navigation;

@@ -7,7 +7,7 @@ export default initialValue => {
   return {
     todos,
     toggleState,
-    toggleTodoFrom: () => {
+    toggleTodoForm: () => {
       setToggleState(!toggleState);
     },
     addTodo: todoText => {

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const TodoList = ({ todos, deleteTodo, completeTodo, toggleTodoFrom }) => {
+const TodoList = ({ todos, deleteTodo, completeTodo, toggleTodoForm }) => {
   const classes = useStyles();
 
   return (
@@ -71,7 +71,7 @@ const TodoList = ({ todos, deleteTodo, completeTodo, toggleTodoFrom }) => {
         button
         className={classes.addButton}
         onClick={() => {
-          toggleTodoFrom();
+          toggleTodoForm();
         }}
       >
         <IconButton>
